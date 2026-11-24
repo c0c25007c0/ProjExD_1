@@ -20,19 +20,36 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
+        # key_lst = pg.key.get_pressed()
+        # if event.type == pg.QUIT:return
+        # kk_rct.move_ip((-1, 0))
+        # if key_lst[pg.K_UP]:
+        #     kk_rct.move_ip((0, -1))
+        # if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
+        #     kk_rct.move_ip((0, +1))  # 縦に+1動かす
+        # if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
+        #     kk_rct.move_ip((-1, 0))  # 横に-1動かす            
+        # if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
+        #     kk_rct.move_ip((+2, 0))  # 横に+1動かす
+
+        #演習1
         key_lst = pg.key.get_pressed()
         if event.type == pg.QUIT:return
-        kk_rct.move_ip((-1, 0))
-        if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1))
-        if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
-            kk_rct.move_ip((0, +1))  # 縦に+1動かす
-        if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
-            kk_rct.move_ip((-1, 0))  # 横に-1動かす            
-        if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip((+2, 0))  # 横に+1動かす
 
+        x=-1
+        y=0
+        if key_lst[pg.K_UP]:
+            y=-1
+        if key_lst[pg.K_DOWN]:
+            y=+2
+        if key_lst[pg.K_RIGHT]:
+            x=+1
+        if key_lst[pg.K_LEFT]:
+            x=-1
         
+        kk_rct.move_ip((x, y))
+
+
 
         x =tmr%3200 #5.9
         screen.blit(bg_img, [-x, 0]) #2.5
