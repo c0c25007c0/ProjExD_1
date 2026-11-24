@@ -12,17 +12,20 @@ def main():
     bg_img = pg.image.load("fig/pg_bg.jpg") #1
     kk_img = pg.image.load("fig/3.png") #3
     kk_img = pg.transform.flip(kk_img, True, False)
+    bg_img2 = pg.transform.flip(bg_img, True, False)#8
 
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        x =tmr
-        screen.blit(bg_img, [-x, 0]) #2
+        x =tmr%3200 #5.9
+        screen.blit(bg_img, [-x, 0]) #2.5
+        screen.blit(bg_img2, [-x+1610, 0]) #7
+        screen.blit(bg_img, [-x+3200, 0]) #2.5
         screen.blit(kk_img, [300, 200]) #4
         pg.display.update()
         tmr += 1        
-        clock.tick(200)
+        clock.tick(200)#6
 
 
 if __name__ == "__main__":
