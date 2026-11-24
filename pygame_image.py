@@ -22,6 +22,7 @@ def main():
 
         key_lst = pg.key.get_pressed()
         if event.type == pg.QUIT:return
+        kk_rct.move_ip((-1, 0))
         if key_lst[pg.K_UP]:
             kk_rct.move_ip((0, -1))
         if key_lst[pg.K_DOWN]:  # 下矢印キーが押されたら
@@ -29,7 +30,9 @@ def main():
         if key_lst[pg.K_LEFT]:  # 左矢印キーが押されたら
             kk_rct.move_ip((-1, 0))  # 横に-1動かす            
         if key_lst[pg.K_RIGHT]:  # 右矢印キーが押されたら
-            kk_rct.move_ip((+1, 0))  # 横に+1動かす
+            kk_rct.move_ip((+2, 0))  # 横に+1動かす
+
+        
 
         x =tmr%3200 #5.9
         screen.blit(bg_img, [-x, 0]) #2.5
